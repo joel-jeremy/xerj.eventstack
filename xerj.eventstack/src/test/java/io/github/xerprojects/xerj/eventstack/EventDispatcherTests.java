@@ -1,44 +1,17 @@
 package io.github.xerprojects.xerj.eventstack;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.concurrent.CompletableFuture;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 import io.github.xerprojects.xerj.eventstack.entities.TestEvent;
 import io.github.xerprojects.xerj.eventstack.entities.TestEventHandler;
 import io.github.xerprojects.xerj.eventstack.providers.RegistryEventHandlerProvider;
 
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
 public class EventDispatcherTests {
-	
-	@Nested
-	public class BuilderMethod {
-		@Test
-		public void shouldNeverReturnNull() {
-			EventDispatcher.Builder builder = EventDispatcher.builder();
-			assertNotNull(builder);
-		}
-	}
-	
-	@Nested
-	public class BuilderTests {
-		@Nested
-		public class AddEventHandlerProviderMethod {
-			@Test
-			public void shouldThrowWhenProviderArgumentIsNull() {
-				assertThrows(IllegalArgumentException.class, () -> {
-					EventDispatcher.Builder builder = EventDispatcher.builder();
-					// Add null.
-					builder.addEventHandlerProvider(null);
-				});
-			}
-		}
-	}
 	
 	@Nested
 	public class SendMethod {
@@ -53,9 +26,7 @@ public class EventDispatcherTests {
 						.registerEventHandler(TestEvent.class, () -> eventHandler2)
 						.registerEventHandler(TestEvent.class, () -> eventHandler3));
 			
-			EventDispatcher dispatcher = EventDispatcher.builder()
-					.addEventHandlerProvider(provider)
-					.build();
+			var dispatcher = new EventDispatcher(provider);
 			
 			var event = new TestEvent();
 			
@@ -77,9 +48,7 @@ public class EventDispatcherTests {
 						.registerEventHandler(TestEvent.class, () -> eventHandler2)
 						.registerEventHandler(TestEvent.class, () -> eventHandler3));
 			
-			EventDispatcher dispatcher = EventDispatcher.builder()
-					.addEventHandlerProvider(provider)
-					.build();
+			var dispatcher = new EventDispatcher(provider);
 			
 			var event1 = new TestEvent();
 			var event2 = new TestEvent();
