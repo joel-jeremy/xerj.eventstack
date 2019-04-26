@@ -15,21 +15,6 @@
   <description>XerJ Event Stack's EventHandlerProvider implementation that utilizes Spring Context.</description>
   <url>https://github.com/XerProjects/xerj.eventstack</url>
 
-  <licenses>
-    <license>
-        <name>Apache License 2.0</name>
-        <url>https://github.com/XerProjects/xerj.eventstack/blob/master/LICENSE</url>
-        <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>11</java.version>
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-  </properties>
-
   <dependencies>
     <dependency>
         <groupId>io.github.xerprojects</groupId>
@@ -41,106 +26,6 @@
         <artifactId>spring-context</artifactId>
         <version>5.1.6.RELEASE</version>
     </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <scope>test</scope>
-    </dependency>
   </dependencies>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <!-- For surefire to work with Java modules -->
-          <forkCount>0</forkCount>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-javadocs</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-  </distributionManagement>
-
-  <organization>
-      <name>XerProjects</name>
-      <url>https://github.com/XerProjects</url>
-  </organization>
-    
-  <issueManagement>
-      <system>GitHub</system>
-      <url>https://github.com/XerProjects/xerj.eventstack/issues</url>
-  </issueManagement>
-
-  <scm>
-    <url>https://github.com/XerProjects/xerj.eventstack</url>
-    <connection>
-        scm:git:git://github.com/XerProjects/xerj.eventstack.git
-    </connection>
-    <developerConnection>
-        scm:git:ssh://git@github.com/XerProjects/xerj.eventstack.git
-    </developerConnection>
-  </scm>
-   
-  <developers>
-    <developer>
-        <name>Joel Jeremy Marquez</name>
-    </developer>
-  </developers>
 </project>

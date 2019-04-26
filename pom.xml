@@ -6,13 +6,27 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>xerj.eventstack.parent</name>
+  <description>XerJ Event Stack's Parent POM.</description>
+  <url>https://github.com/XerProjects/xerj.eventstack</url>
   
   <modules>
     <module>xerj.eventstack</module>
     <module>xerj.eventstack.providers.springcontext</module>
   </modules>
 
+  <licenses>
+    <license>
+        <name>Apache License 2.0</name>
+        <url>https://github.com/XerProjects/xerj.eventstack/blob/master/LICENSE</url>
+        <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>11</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
     <junit-version>5.4.1</junit-version>
     <maven-compiler-plugin-version>3.8.0</maven-compiler-plugin-version>
     <maven-surefire-plugin-version>2.22.1</maven-surefire-plugin-version>
@@ -38,6 +52,19 @@
     </dependencies>
   </dependencyManagement>
 
+  <dependencies>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -50,31 +77,113 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin-version}</version>
+          <configuration>
+            <!-- For surefire to work with Java modules -->
+            <forkCount>0</forkCount>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>${maven-source-plugin-version}</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <version>${maven-javadoc-plugin-version}</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${maven-gpg-plugin-version}</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
       </plugins>
     </pluginManagement>
+
+    <!-- Plugins -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
 
-  <licenses>
-    <license>
-        <name>Apache License 2.0</name>
-        <url>https://github.com/XerProjects/xerj.eventstack/blob/master/LICENSE</url>
-        <distribution>repo</distribution>
-    </license>
-  </licenses>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <organization>
+      <name>XerProjects</name>
+      <url>https://github.com/XerProjects</url>
+  </organization>
+    
+  <issueManagement>
+      <system>GitHub</system>
+      <url>https://github.com/XerProjects/xerj.eventstack/issues</url>
+  </issueManagement>
+
+  <scm>
+    <url>https://github.com/XerProjects/xerj.eventstack</url>
+    <connection>
+        scm:git:git://github.com/XerProjects/xerj.eventstack.git
+    </connection>
+    <developerConnection>
+        scm:git:ssh://git@github.com/XerProjects/xerj.eventstack.git
+    </developerConnection>
+  </scm>
+   
+  <developers>
+    <developer>
+        <name>Joel Jeremy Marquez</name>
+    </developer>
+  </developers>
 </project>
