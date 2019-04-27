@@ -12,6 +12,7 @@
   <modules>
     <module>xerj.eventstack</module>
     <module>xerj.eventstack.providers.springcontext</module>
+    <module>xerj.eventstack.providers.guice</module>
   </modules>
 
   <licenses>
