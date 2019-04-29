@@ -4,12 +4,12 @@
   <parent>
     <artifactId>xerj.eventstack.parent</artifactId>
     <groupId>io.github.xerprojects</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
 
   <groupId>io.github.xerprojects</groupId>
   <artifactId>xerj.eventstack.providers.guice</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
 
   <name>xerj.eventstack.providers.guice</name>
   <description>XerJ Event Stack's EventHandlerProvider implementation that utilizes Guice.</description>
@@ -19,7 +19,7 @@
     <dependency>
         <groupId>io.github.xerprojects</groupId>
         <artifactId>xerj.eventstack</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </dependency>
     <dependency>
         <groupId>com.google.inject</groupId>

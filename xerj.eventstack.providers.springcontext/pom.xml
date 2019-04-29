@@ -4,11 +4,11 @@
   <parent>
     <groupId>io.github.xerprojects</groupId>
     <artifactId>xerj.eventstack.parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <groupId>io.github.xerprojects</groupId>
   <artifactId>xerj.eventstack.providers.springcontext</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
 
   <name>xerj.eventstack.providers.springcontext</name>
@@ -19,7 +19,7 @@
     <dependency>
         <groupId>io.github.xerprojects</groupId>
         <artifactId>xerj.eventstack</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </dependency>
     <dependency>
         <groupId>org.springframework</groupId>

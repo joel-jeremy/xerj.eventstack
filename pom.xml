@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.xerprojects</groupId>
   <artifactId>xerj.eventstack.parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <packaging>pom</packaging>
   <name>xerj.eventstack.parent</name>
   <description>XerJ Event Stack's Parent POM.</description>
